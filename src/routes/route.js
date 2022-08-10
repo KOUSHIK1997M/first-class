@@ -6,6 +6,7 @@ const pqr = require("../util/helper")
 const stv = require("../validator/formatter")
 const mnp = require("../lodash/lodash");
 const { isInteger } = require('lodash');
+const { application } = require('express');
 
 const router = express.Router();
 
@@ -145,6 +146,61 @@ router.get('/GET/films/:filmId', function(req, res){
         res.send('No movie exists with this id')
     }
 })
+
+
+//================================(11-08-2022)=============================================//
+
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": [
+               "swimming"
+           ]
+       },
+       {
+           "name": "gopal",
+           "dob": "1/09/1995",
+           "gender": "male",
+           "city": "delhi",
+           "sports": [
+               "soccer"
+           ]
+       },
+       {
+           "name": "lokesh",
+           "dob": "1/1/1990",
+           "gender": "male",
+           "city": "mumbai",
+           "sports": [
+               "soccer"
+           ]
+       },
+   ]
+
+
+
+router.post("/players", function(req, res){
+    let count = 0;
+    let arr = req.body;
+    let arr1 = arr['name']
+    for( let i = 0; i < players.length; i++){
+        if(players[i]["name"] != arr1){
+            count = count + 1;
+        }
+    }
+    if(count < players.length){
+        res.send("Oops!! ...Data already existst!!!")
+    }else if(count == players.length){
+        players.push(arr);
+        res.send({ data: players , status: true }  );
+    }
+})
+
+
 
 //=============================================================================//
 
