@@ -202,6 +202,54 @@ router.post("/players", function(req, res){
 
 
 
+//==================================(12-08-2022)===========================================//
+
+var persons =[
+    {
+        name: "PK",
+        age: 10,
+        votingStatus: false
+    },
+    {
+        name: "SK",
+        age: 20,
+        votingStatus: false
+    },
+    {
+        name: "AA",
+        age: 70,
+        votingStatus: false
+    },
+    {
+        name: "SC",
+        age: 5,
+        votingStatus: false
+    },
+    {
+        name: "HO",
+        age: 40,
+        votingStatus: false
+    }
+    
+
+]
+
+
+router.post("/persons", function(req, res){
+    let n1 = req.body;
+    let n = n1['age'];
+    let arr = [];
+    for(let i = 0; i < persons.length; i++){
+        let m = persons[i]['age'];
+        if(parseInt(m) > parseInt(n)){
+            persons[i]['votingStatus'] = true;
+            let a = persons[i];
+            arr.push(a);
+        }
+    }
+    res.send(arr);
+})
+
 //=============================================================================//
 
 
