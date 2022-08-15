@@ -1,4 +1,7 @@
 const express = require('express');
+
+const { default: mongoose } = require('mongoose')
+
 var bodyParser = require('body-parser');
 
 const route = require('./routes/route.js');
@@ -52,6 +55,21 @@ app.get("/sol2", function(req, res){
 //================================(09-08-2022)=============================================//
 
 
+
+
+
+//================================(Mongodb)=============================================//
+
+
+mongoose.connect("mongodb+srv://Dipika:S8QPtDnL0aPhYbvw@cluster0.ildaoen.mongodb.net/MyFirstDatabase?retryWrites=true&w=majority",{
+    useNewUrlParser: true
+})
+.then(() => console.log("MongoDb is connected"))
+.catch(err => console.log(err))
+
+
+
+//================================(mongodb)=============================================//
 
 
 
