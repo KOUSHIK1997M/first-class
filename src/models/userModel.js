@@ -35,6 +35,7 @@ const bookSchema = new mongoose.Schema({
         unique: true
     },
     category: String,
+    price: Number,
     year: Number,
 }, { timestamps: true })
 
