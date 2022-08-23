@@ -54,21 +54,30 @@ const updateBooks = async function (req, res){
     let all = author_d[0]._id
     let all1 = await bookModel.updateMany(
         {publisher: all},
-        {$set: {"isHardCover": false}}    
+        {$set: {"isHardCover": true}}    
     )
     //part _2) ====>b
+    // let book = await authorModel.find({rating: {$gte : 3.5}}).select({_id: 1})
+    // let all2 = book.map(async function(al){
+    //     let all3 = await bookModel.updateMany(
+    //         {author: al._id},
+    //         {$set: {price: 500}}
+    //     )
+    //     return all3
+    // })
     let book = await authorModel.find({rating: {$gte : 3.5}}).select({_id: 1})
     let all2 = book.map(async function(al){
-        let all3 = await bookModel.updateMany(
-            {author: al._id},
-            {$set: {price: 100}}
-        )
-        return all3
+        let author_d = await bookModel.find(al._id).select({price: 1, _id: 0})
+        let all4 = author_d.map(async function(ai){
+            let all3 = await bookModel.updateMany(
+                {author: al._id},
+                {$set: {price: ai.price + 10}}
+            )
+            return all3
+        })
     })
     res.send({data: all1})
 }
-
-
 
 // //=======================================================================//
 
