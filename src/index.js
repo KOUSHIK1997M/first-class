@@ -3,16 +3,16 @@ const bodyParser = require('body-parser');
 const route = require('./routes/route.js');
 const { default: mongoose } = require('mongoose');
 const app = express();
+const connection = require("./db");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect("mongodb+srv://project_1:Llgfqe5Is4BXArKU@cluster0.u6u38bx.mongodb.net/project_1?retryWrites=true&w=majority", {
-    useNewUrlParser: true
-})
-.then( () => console.log("MongoDb is connected"))
-.catch ( err => console.log(err) )
+
+// database connection
+connection();
+
 
 app.use('/', route);
 
