@@ -13,8 +13,7 @@ router.get("/test-me", function (req, res) {
 router.post("/authors", AuthorController.createAuthor  )//mild.mild1,
 
 router.post("/blogs",mild.mild1, blogController.createBlog )
-router.get("/blogs", blogController.findBlogs)
-router.get("/blogs:id", blogController.findQuery)
+router.get("/blogs", blogController.findQuery)
 
 
 
