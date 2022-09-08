@@ -39,7 +39,6 @@ const createAuthor = async function (req, res) {
 
 //=========================(Author Login)================================//
 
-
 const authorLogin = async function (req, res) {
     try {
         let EmailId = req.body.email;
