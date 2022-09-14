@@ -11,6 +11,7 @@ const isTitle = (title) => {
             return "please Enter yor blog title."
         }
 
+        
         //------------------------> (If title must be string) <------------------------------//
 
         if (typeof title !== 'string') {

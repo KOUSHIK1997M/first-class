@@ -3,7 +3,6 @@
  */
 
 
-
  const checkPasswordValidity = (value) => {
     try{
         const isNonWhiteSpace = /^\S*$/;

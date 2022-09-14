@@ -25,7 +25,6 @@ const authorizetionByBody = async function (req, res, next) {
 }
 
 
-
 //========================================(authorizetion by query)==============================================///
 
 const authorizetionByQuery = async function (req, res, next) {

@@ -22,6 +22,7 @@ const createBlog = async function (req, res) {
 
 //===================================== find blogs data by query params =======================//
 
+
 const findQuery = async function (req, res) {
     try {
         let authId = req.Id;
@@ -35,6 +36,7 @@ const findQuery = async function (req, res) {
         res.status(500).send({ status: false, msg: error.message })
     }
 }
+
 
 
 //============================== PUT /blogs/:blogId ================================//
