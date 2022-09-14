@@ -30,12 +30,12 @@ const blogSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        // enum: ["technology", "entertainment", "life style", "food", "fashion"]
+        // ["technology", "entertainment", "life style", "food", "fashion"]
     },
     subcategory: {
         type: String,
         required: true,
-        // enum: [technology-[web development, mobile development, AI, ML etc]]
+        // [technology-[web development, mobile development, AI, ML etc]]
     },
     isPublished: {
         type: Boolean, 
